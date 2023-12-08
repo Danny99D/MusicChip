@@ -1,0 +1,32 @@
+.track{
+    background-color: $color3;
+    width: 90%;
+    // height: 3rem;
+    margin-bottom: 1rem;
+    color: aliceblue;
+    padding: .5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    &-name{
+        margin-bottom: .3rem;
+    }
+    & audio{
+        height: 2rem;
+        &::-webkit-media-controls-panel{
+            background-color: aliceblue;
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .track{
+        & audio{
+            width: 100%;
+        }
+    }
+}

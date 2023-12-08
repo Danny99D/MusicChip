@@ -1,0 +1,29 @@
+
+$color1: #1b2838;
+$color2: #171a21;
+$color3: #2a475e;
+$color4: #c7d5e0;
+$color5: #66c0f4;
+
+%bgs {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+%flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flexAround {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin cube($t) {
+    width: $t;
+    height: $t;
+}

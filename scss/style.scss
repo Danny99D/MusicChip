@@ -1,0 +1,102 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'barlow';
+    src: url('../assets/fonts/barlow.ttf');
+}
+
+// Firefox
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #404040 #ffffff;
+}
+
+//Chrome, Edge, and Safari 
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .2);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+@import '_vars.scss';
+@import '_chip.scss';
+@import '_track.scss';
+
+.body{
+    @extend %flexCenter;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(0deg, rgba(0,85,85,1) 0%, rgba(0,55,55,1) 100%);
+}
+
+.tutorial{
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: aliceblue;
+    height: 80vh;
+    padding: .3rem 1.5rem;
+    & a{
+        color: $color5;
+    }
+    & h2{
+        text-align: center;
+        text-decoration: underline;
+        margin-top: 1.5rem;
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+
+    & .important{
+        color: goldenrod;
+    }
+
+    & img{
+        max-width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid $color5;
+    }
+
+    & .log-link {
+        border-radius: 5px;
+        background-color: $color3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: .5rem;
+        border: 2px solid $color3;
+        transition: border-color .6s ease;
+        &:hover{
+            border-color: $color5;
+        }
+        & p{
+            margin: 0;
+        }
+        & img {
+            width: 80px;
+            margin-bottom: .5rem;
+            border: none;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1025px){
+    .tutorial{
+        height: auto;
+    }
+}

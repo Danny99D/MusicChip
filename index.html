@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Chips</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <script src="js/libChip.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body">
+
+    <div class="chip">
+
+        <div class="chip-data">
+
+            <div class="chip-images">
+                <img src="assets/img/front.png" refId="chipImageFront" alt="front.png" id="imageFront">
+                <img src="assets/img/back.png" refId="chipImageBack" alt="back.png" id="imageBack">
+            </div>
+
+            <div class="chip-field">
+                <input type="text" name="chipImageFront" id="chipImageFront" class="chip-input" placeholder="Chip Image Front Link (Empty default)">
+            </div>
+
+            <div class="chip-field">
+                <input type="text" name="chipImageBack" id="chipImageBack" class="chip-input" placeholder="Chip Image Back Link (Empty default)">
+            </div>
+
+            <div class="chip-field">
+                <input type="text" name="chipName" id="chipName" class="chip-input" placeholder="Chip Name">
+            </div>
+
+            <div class="chip-field">
+                <input type="text" name="chipDesc" id="chipDesc" class="chip-input" placeholder="Chip Description">
+            </div>
+
+            <div class="chip-field">
+                <select class="chip-input" name="chipSelect" id="chipSelect">
+                    <option selected="true" disabled="disabled">Choose Page</option> 
+                </select>
+            </div>
+
+            <div class="chip-field">
+                <textarea name="chipCode" id="chipCode" cols="30" rows="10" class="chip-input" placeholder="Json Code here"></textarea>
+            </div>
+
+            <div class="chip-buttons">
+                <div class="chip-button" id="tutorialButton">Tutorial</div>
+                <div class="chip-button chip-button--disabled" id="createChip">Convert Menu</div>
+            </div>
+        </div>
+
+        <div class="chip-music">
+
+            <div class="chip-music__number">Track Preview</div>
+
+            <div class="chip-tracks" id="tracks"></div>
+
+            <div class="chip-code" id="output">
+                <div class="chip-buttons">
+                    <div class="chip-button" id="convertButton">Convert to Json</div>
+                    <div class="chip-button" id="copyButton">Copy to Clipboard</div>
+                </div>
+                <textarea name="" id="code" cols="30" rows="10" class="chip-code__text"></textarea>
+            </div>
+
+            <div class="chip-tutorial" id="tutorial">  
+
+              <div class="chip-music__number">Tutorial</div>
+
+              
+              <div class="tutorial">
+
+                <div class="chip-buttons">
+                  <a href="https://github.com/Danny99D/musicchip" target="_blank" class="log-link">
+                    <img src="assets/github.png" alt="github.png">
+                    <p>GitHub Page</p>
+                  </a>
+                  <a href="https://github.com/Danny99D/pokedexlos" target="_blank" class="log-link">
+                    <img src="assets/github.png" alt="github.png">
+                    <p>PNG & PSD Chip Files</p>
+                  </a>
+                </div>
+
+                <h2>Create a Excel File</h2>
+                <p>You'll need a Excel File, the Row 1 need to have "name" and "steam", "youtube" is optional but is nice to have the link if needed. <br>
+                  <span class="important">Lower Case for name, steam and youtube, styles not needed.</span>
+                </p>
+                <img src="assets/tutorial/tutorial01.png" alt="tutorial01.png">
+                <p>You can name the Pages and select different pages.</p>
+                <img src="assets/tutorial/tutorial02.png" alt="tutorial02.png">
+                
+                <h2>Upload the Chip Image and Tracks to Steam Cloud</h2>
+                <p>In the Tabletop (TTS) Menu, in Modding > Cloud Manager you can upload up to 100GB for free in Steam.</p>
+                <p>Upload here the Images for the Chip and the Music Tracks, I recommend organize the files in folders and use MP3 for the Music files.</p>
+                <img src="assets/tutorial/tutorial03.png" alt="tutorial03.png">
+                
+                <h2>Convert the Excel File to a Json File</h2>
+                <p><span class="important">Before convert the File</span>, copy the Steam Links of the Images and Music from the Steam Cloud and paste in the Excel in the "steam" column, you can copy the Link just clicking it in the Cloud Manager.</p>
+                <p>I use this <a href="https://codebeautify.org/excel-to-json" target="_blank">Page</a> to convert the Excel. You don't need to download the Json File, just copy it.</p>
+                <img src="assets/tutorial/tutorial04.png" alt="tutorial04.png">
+                
+                <h2>Fill the Form</h2>
+                <p><span class="important">First You'll need to paste the JSON code from the Converted Excel to the "JSON Code here" field.</span></p>
+                <p>After pasting the JSON, the Select Box above will have the Name of the Pages of the Excel, select one of the Pages and the "Track Preview" will have the list of Tracks and a preview from the Steam Cloud Link.</p>
+                <p>Name, Description and Images are self explanatory, <span class="important">You can leave the Image Link Empty</span> and the Chip will use the Default ones if just want to test it.</p>
+                <img src="assets/tutorial/tutorial05.png" alt="tutorial05.png">
+                
+                <h2>Create the Chip JSON</h2>
+                <p>After pasting the JSON, the "Convert Menu" Button will be available. <span class="important">You need to select a Page, write a Name and a Description to convert it.</span></p>
+                <img src="assets/tutorial/tutorial06.png" alt="tutorial06.png">
+                <p>Click "Copy to Clipboard" or select all the Text with Ctrl + A to copy it.</p>
+                <p><span class="warning">Go to your Saved Objects Folder</span> wich is located in "Documents/My Games/Tabletop Simulator/Saves/Saved Objects/"</p>
+                <p>Create a file.json (In my case is test.json) with the notepad and paste here the Json Code.</p>
+                <p><span class="important">The Saved Object updates itself in Tabletop when you save the File, so you can use the same file to create various Chips without need to create a new file.</span></p>
+                <p>Save the Json, draw the Saved Object without Image preview and Save the Chip to let Tabletop create the Preview Image.</p>
+                <img src="assets/tutorial/tutorial07.png" alt="tutorial07.png">
+
+              </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

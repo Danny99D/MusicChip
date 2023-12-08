@@ -1,0 +1,309 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "barlow";
+  src: url("../assets/fonts/barlow.ttf");
+}
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #404040 #ffffff;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.body, .chip-input--select, .chip-music__number, .chip-music, .chip-data, .chip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chip-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.chip {
+  background-color: #171a21;
+  width: 90vw;
+  height: 90vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 10px;
+}
+.chip-data {
+  width: 40%;
+  height: 90vh;
+  flex-direction: column;
+  padding: 2rem;
+}
+.chip-music {
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  width: 60%;
+  padding: 2rem;
+}
+.chip-music__number {
+  color: aliceblue;
+  border-bottom: 2px solid #66c0f4;
+  width: 100%;
+  margin-bottom: 1rem;
+  user-select: none;
+}
+.chip-images {
+  background-color: #2a475e;
+  padding: 0.6rem;
+  border-radius: 10px;
+}
+.chip-images img {
+  width: 140px;
+  height: 140px;
+}
+.chip-buttons {
+  margin-top: auto;
+  width: 100%;
+}
+.chip-tracks {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.chip-button {
+  user-select: none;
+  color: aliceblue;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #2a475e;
+  border: 2px solid #2a475e;
+  transition: border-color 0.4s ease;
+}
+.chip-button:hover {
+  cursor: pointer;
+  border-color: #66c0f4;
+}
+.chip-button--disabled {
+  background-color: gray;
+  border-color: gray;
+  color: black;
+}
+.chip-button--disabled:hover {
+  cursor: initial;
+  border-color: gray;
+}
+.chip-field {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+.chip-input {
+  width: 100%;
+  padding: 0.3rem;
+  border: 2px solid #2a475e;
+  background-color: #2a475e;
+  color: aliceblue;
+  outline: none;
+  transition: border-color 0.4s ease;
+  border-radius: 5px;
+  resize: none;
+}
+.chip-input:focus, .chip-input:hover {
+  border-color: #66c0f4;
+}
+.chip-input--select {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.chip-input--ok {
+  border-color: green;
+}
+.chip-input--fail {
+  border-color: tomato;
+}
+.chip-code, .chip-tutorial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: #171a21;
+  transform: translateX(150%);
+  transition: transform 0.6s ease-out;
+}
+.chip--show {
+  transform: translateX(0vw);
+  z-index: 20;
+}
+.chip-code {
+  display: flex;
+  flex-direction: column;
+}
+.chip-code .chip-button {
+  width: 30%;
+  margin: 1rem auto;
+  text-align: center;
+}
+.chip-code .chip-buttons {
+  margin-top: 0;
+}
+.chip-code__text {
+  width: 90%;
+  height: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #2a475e;
+  color: aliceblue;
+  resize: none;
+  outline: none;
+  border: 2px solid #2a475e;
+  transition: border-color 0.4s ease;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.chip-code__text:focus, .chip-code__text:hover {
+  border-color: #66c0f4;
+}
+.chip-tutorial {
+  padding: 1rem;
+}
+
+@media screen and (max-width: 1025px) {
+  .chip {
+    flex-direction: column;
+    overflow-y: auto;
+    justify-content: initial;
+    align-items: center;
+  }
+  .chip-music, .chip-data {
+    width: 80%;
+    height: auto;
+  }
+  .chip-data {
+    padding-bottom: 0.2rem;
+  }
+  .chip-buttons {
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 525px) {
+  .chip-data, .chip-music {
+    padding: 0.5rem 0.3rem;
+  }
+  .chip-images img {
+    width: 80px;
+    height: 80px;
+  }
+}
+.track {
+  background-color: #2a475e;
+  width: 90%;
+  margin-bottom: 1rem;
+  color: aliceblue;
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+.track-name {
+  margin-bottom: 0.3rem;
+}
+.track audio {
+  height: 2rem;
+}
+.track audio::-webkit-media-controls-panel {
+  background-color: aliceblue;
+}
+
+@media screen and (max-width: 600px) {
+  .track audio {
+    width: 100%;
+  }
+}
+.body {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(0deg, rgb(0, 85, 85) 0%, rgb(0, 55, 55) 100%);
+}
+
+.tutorial {
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: aliceblue;
+  height: 80vh;
+  padding: 0.3rem 1.5rem;
+}
+.tutorial a {
+  color: #66c0f4;
+}
+.tutorial h2 {
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 1.5rem;
+}
+.tutorial h2:first-child {
+  margin-top: 0;
+}
+.tutorial .important {
+  color: goldenrod;
+}
+.tutorial img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #66c0f4;
+}
+.tutorial .log-link {
+  border-radius: 5px;
+  background-color: #2a475e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 2px solid #2a475e;
+  transition: border-color 0.6s ease;
+}
+.tutorial .log-link:hover {
+  border-color: #66c0f4;
+}
+.tutorial .log-link p {
+  margin: 0;
+}
+.tutorial .log-link img {
+  width: 80px;
+  margin-bottom: 0.5rem;
+  border: none;
+}
+
+@media screen and (max-width: 1025px) {
+  .tutorial {
+    height: auto;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
