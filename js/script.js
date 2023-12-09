@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(checkImgSteam(chipImageFront.value)){
 
             //Changes the Source of the Preview Front with the new one
-            imageFront.src = chipImageFront.value
+            // imageFront.src = chipImageFront.value
             
             toggleInput(chipImageFront, 1, 1)
 
-            //Checks if the Image Exists
-            checkImagesLoad()
+            //Checks if the Image Exists Fck Steam upgrade the cloud to https :C
+            // checkImagesLoad()
         }else{
 
             toggleInput(chipImageFront, 0, 1)
@@ -82,11 +82,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         if(checkImgSteam(chipImageBack.value)){
 
-            imageBack.src = chipImageBack.value
+            // imageBack.src = chipImageBack.value
 
             toggleInput(chipImageBack, 1, 1)
 
-            checkImagesLoad()
+            // checkImagesLoad()
         }else{
 
             toggleInput(chipImageBack, 0, 1)

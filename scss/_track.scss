@@ -8,8 +8,8 @@
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     &-name{
@@ -19,6 +19,20 @@
         height: 2rem;
         &::-webkit-media-controls-panel{
             background-color: aliceblue;
+        }
+    }
+
+    &-link{
+        display: block;
+        @include cube(2rem);
+        
+        @extend %bgs;
+        background-image: url("../assets/youtube.png");
+        transition: background-image .6s ease;
+        
+        &:hover{
+            
+            background-image: url("../assets/youtubeB.png");
         }
     }
 }

@@ -101,20 +101,31 @@ function loadTrackList(trackList) {
         //Adds the Name's DIV to their parent DIV
         div.appendChild(trName)
 
-        //If the Track has a "steam" property, creates an AUDIO element to preview the Track
-        if(track.hasOwnProperty('steam')){
-            let aud = document.createElement('AUDIO')
-            aud.classList.add("track-audio")
-            aud.controls = 1
+        if(track.hasOwnProperty("youtube")){
+            let a = document.createElement('A')
+            a.href = track.youtube
+            a.target = "_blank"
+            a.classList.add("track-link")
 
-            let sourceAud = document.createElement('SOURCE')
-            sourceAud.src = track.steam
-            sourceAud.setAttribute("type", "audio/mp3")
-
-            aud.appendChild(sourceAud)
-
-            div.appendChild(aud)
+            div.appendChild(a)
         }
+
+        //If the Track has a "steam" property, creates an AUDIO element to preview the Track
+        //Another http Steam killer :C
+
+        // if(track.hasOwnProperty('steam')){
+        //     let aud = document.createElement('AUDIO')
+        //     aud.classList.add("track-audio")
+        //     aud.controls = 1
+
+        //     let sourceAud = document.createElement('SOURCE')
+        //     sourceAud.src = track.steam
+        //     sourceAud.setAttribute("type", "audio/mp3")
+
+        //     aud.appendChild(sourceAud)
+
+        //     div.appendChild(aud)
+        // }
 
         //Adds the Track's DIV to the Tracks List's DIV
         tracks.appendChild(div)
@@ -129,6 +140,7 @@ function loadPages(json, chipSelect) {
 
         //Aux var to select the first option
         let first = true
+        let firstKey = "";
 
         //Loop through the JSON object's Keys to create a Option
         Object.keys(json).forEach(pageName =>{
@@ -143,6 +155,7 @@ function loadPages(json, chipSelect) {
             //If is the first option created, select it
             if(first){
                 opt.selected = 1
+                firstKey = pageName
                 first = false
             }
 
@@ -150,6 +163,10 @@ function loadPages(json, chipSelect) {
             chipSelect.appendChild(opt)
         })
 
+        //Load the First Page Track List
+        if(firstKey != ""){
+            loadTrackList(json[firstKey])
+        }
     }else{
         // console.log("Json Error loadPages")
     }
@@ -259,7 +276,6 @@ function checkImagesLoad() {
         img.addEventListener('error', () => {
             if(img.hasAttribute("refId")){
                 img.src = 'assets/img/unknown.png'
-                toggleInput(document.getElementById(img.getAttribute("refId")), 0, 1)
             }
         })
     });
@@ -283,7 +299,7 @@ function checkValue() {
     let convert = true
 
     //Check the Front Image (Empty or Steam cloud link)
-    if((checkImgSteam(chipImageFront.value) || chipImageFront.value == "") && !chipImageFront.classList.contains('chip-input--fail')){
+    if((checkImgSteam(chipImageFront.value) || chipImageFront.value == "")){
         toggleInput(chipImageFront, 1, 1)
     }else{
         toggleInput(chipImageFront, 0, 1)
@@ -291,7 +307,7 @@ function checkValue() {
     }
 
     //Check the Back Image (Empty or Steam cloud link)
-    if((checkImgSteam(chipImageBack.value) || chipImageBack.value == "") && !chipImageBack.classList.contains('chip-input--fail')){
+    if((checkImgSteam(chipImageBack.value) || chipImageBack.value == "")){
         toggleInput(chipImageBack, 1, 1)
     }else{
         toggleInput(chipImageBack, 0, 1)
