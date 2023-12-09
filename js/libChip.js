@@ -101,6 +101,31 @@ function loadTrackList(trackList) {
         //Adds the Name's DIV to their parent DIV
         div.appendChild(trName)
 
+        
+        //If the Track has a "steam" property, creates an AUDIO element to preview the Track
+        //Another http Steam killer :C
+        
+        if(track.hasOwnProperty('steam')){
+            let st = document.createElement('DIV')
+            st.classList.add("track-link")
+            st.classList.add("track-link--steam")
+            
+            div.appendChild(st)
+            
+            //     let aud = document.createElement('AUDIO')
+            //     aud.classList.add("track-audio")
+            //     aud.controls = 1
+            
+            //     let sourceAud = document.createElement('SOURCE')
+            //     sourceAud.src = track.steam
+            //     sourceAud.setAttribute("type", "audio/mp3")
+            
+            //     aud.appendChild(sourceAud)
+            
+            //     div.appendChild(aud)
+        }
+
+        //Creates a Youtube Link
         if(track.hasOwnProperty("youtube")){
             let a = document.createElement('A')
             a.href = track.youtube
@@ -109,23 +134,6 @@ function loadTrackList(trackList) {
 
             div.appendChild(a)
         }
-
-        //If the Track has a "steam" property, creates an AUDIO element to preview the Track
-        //Another http Steam killer :C
-
-        // if(track.hasOwnProperty('steam')){
-        //     let aud = document.createElement('AUDIO')
-        //     aud.classList.add("track-audio")
-        //     aud.controls = 1
-
-        //     let sourceAud = document.createElement('SOURCE')
-        //     sourceAud.src = track.steam
-        //     sourceAud.setAttribute("type", "audio/mp3")
-
-        //     aud.appendChild(sourceAud)
-
-        //     div.appendChild(aud)
-        // }
 
         //Adds the Track's DIV to the Tracks List's DIV
         tracks.appendChild(div)

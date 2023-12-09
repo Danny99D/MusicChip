@@ -229,12 +229,13 @@
   display: flex;
   align-items: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-left: auto;
   margin-right: auto;
 }
 .track-name {
   margin-bottom: 0.3rem;
+  margin-right: auto;
 }
 .track audio {
   height: 2rem;
@@ -246,11 +247,18 @@
   display: block;
   width: 2rem;
   height: 2rem;
+  margin-right: 0.5rem;
   background-image: url("../assets/youtube.png");
   transition: background-image 0.6s ease;
 }
 .track-link:hover {
   background-image: url("../assets/youtubeB.png");
+}
+.track-link--steam {
+  background-image: url("../assets/steam.png");
+}
+.track-link--steam:hover {
+  background-image: url("../assets/steam.png");
 }
 
 @media screen and (max-width: 600px) {

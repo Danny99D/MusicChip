@@ -9,11 +9,12 @@
     display: flex;
     align-items: center;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-left: auto;
     margin-right: auto;
     &-name{
         margin-bottom: .3rem;
+        margin-right: auto;
     }
     & audio{
         height: 2rem;
@@ -25,6 +26,7 @@
     &-link{
         display: block;
         @include cube(2rem);
+        margin-right: .5rem;
         
         @extend %bgs;
         background-image: url("../assets/youtube.png");
@@ -33,6 +35,13 @@
         &:hover{
             
             background-image: url("../assets/youtubeB.png");
+        }
+        
+        &--steam{
+            background-image: url("../assets/steam.png");
+            &:hover{
+                background-image: url("../assets/steam.png");
+            }
         }
     }
 }
